@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import Button from "./components/Button";
 import Recipe from "./components/Recipe";
 
 function App() {
@@ -45,9 +46,8 @@ function App() {
           value={search}
           onChange={updateSearch}
         />
-        <button className="search-button" type="submit">
-          Search
-        </button>
+
+        <Button type="submit">Search</Button>
       </form>
       <div className="recipes">
         {recipes.map((recipe) => (

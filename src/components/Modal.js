@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import ReactDom from "react-dom";
+import Button from "./Button";
 import classes from "./Modal.module.css";
 
 const Backdrop = (props) => {
@@ -15,7 +16,7 @@ const ModalOverlay = (props) => {
             <li key={props.data.id}>{ingredient.text}</li>
           ))}
         </ol>
-        <button onClick={props.onConfirm}>Okay</button>
+        <Button onClick={props.onConfirm}>Close</Button>
       </div>
     </Fragment>
   );
