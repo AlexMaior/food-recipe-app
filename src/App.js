@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Button from "./components/Button";
 import Recipe from "./components/Recipe";
@@ -12,6 +12,8 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("chicken");
+
+  const foodInputRef = useRef();
 
   useEffect(() => {
     getRecipes();
@@ -33,6 +35,11 @@ function App() {
 
   const getSearch = (e) => {
     e.preventDefault();
+    const enteredFood = foodInputRef.current.value;
+    if (enteredFood.trim().length === 0) {
+      console.log("Introdu ceva");
+      return;
+    }
     setQuery(search);
     setSearch("");
   };
@@ -41,8 +48,10 @@ function App() {
     <div className="App">
       <form onSubmit={getSearch} className="search-form">
         <input
+          ref={foodInputRef}
           className="search-bar"
           type="text"
+          placeholder="try Pulled Pork, Pizza, Coffee..."
           value={search}
           onChange={updateSearch}
         />

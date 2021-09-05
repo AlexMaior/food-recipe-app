@@ -11,3 +11,16 @@
 .list {
   list-style-type: none;
 }
+
+h1,
+p {
+  margin: 0;
+}
+
+.btnContainer {
+  display: flex;
+  width: 50%;
+  margin: auto;
+  align-items: center;
+  flex-direction: column;
+}
