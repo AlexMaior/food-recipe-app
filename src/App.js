@@ -6,8 +6,8 @@ import Recipe from "./components/Recipe";
 function App() {
   //This app uses the pubnlic API fom https://www.edamam.com/
   //In order to use this app you will need a APP ID and An APP KEY
-  const APP_ID = "";
-  const APP_KEY = "";
+  const APP_ID = "00d0a23d";
+  const APP_KEY = "fbe95899ecbd4127523f1e55c6571f99";
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
@@ -38,6 +38,7 @@ function App() {
     const enteredFood = foodInputRef.current.value;
     if (enteredFood.trim().length === 0) {
       console.log("Introdu ceva");
+      alert("You must enter a food/drink");
       return;
     }
     setQuery(search);
