@@ -19,14 +19,6 @@
   pointer-events: none;
 }
 
-.search-bar {
-  width: 50%;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 15px;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

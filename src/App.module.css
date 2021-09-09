@@ -1,0 +1,11 @@
+.search-bar.invalid {
+  background: #ff0000;
+}
+
+.search-bar {
+  width: 50%;
+  border: 1px solid coral;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Button from "./components/Button";
 import Recipe from "./components/Recipe";
+import classes from "./App.module.css";
 
 function App() {
   //This app uses the pubnlic API fom https://www.edamam.com/
@@ -12,6 +13,7 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("chicken");
+  const [isValid, setIsValid] = useState(true);
 
   const foodInputRef = useRef();
 
@@ -30,6 +32,9 @@ function App() {
   };
 
   const updateSearch = (e) => {
+    if (e.target.value.trim().length > 0) {
+      setIsValid(true);
+    }
     setSearch(e.target.value);
   };
 
@@ -37,8 +42,7 @@ function App() {
     e.preventDefault();
     const enteredFood = foodInputRef.current.value;
     if (enteredFood.trim().length === 0) {
-      console.log("Introdu ceva");
-      alert("You must enter a food/drink");
+      setIsValid(false);
       return;
     }
     setQuery(search);
@@ -50,11 +54,11 @@ function App() {
       <form onSubmit={getSearch} className="search-form">
         <input
           ref={foodInputRef}
-          className="search-bar"
+          onChange={updateSearch}
+          className={` ${classes["search-bar"]} ${!isValid && classes.invalid}`}
           type="text"
           placeholder="try Pulled Pork, Pizza, Coffee..."
           value={search}
-          onChange={updateSearch}
         />
 
         <Button type="submit">Search</Button>
