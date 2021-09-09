@@ -36,9 +36,13 @@ const Recipe = (props) => {
           </a>
         </h2>
         <div className={classes.btnContainer}>
-          <Button onClick={ingredientsBtnHandler}>See Ingredients</Button>
+          <Button onClick={ingredientsBtnHandler} className={classes.btn}>
+            See Ingredients
+          </Button>
           <br />
-          <Button onClick={detailsBtnHandler}>See Details</Button>
+          <Button onClick={detailsBtnHandler} className={classes.btn}>
+            See Details
+          </Button>
         </div>
         <p>{props.calories.toFixed(0)} Calories</p>
         <img src={props.image} alt="" />

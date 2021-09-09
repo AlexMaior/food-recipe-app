@@ -61,7 +61,9 @@ function App() {
           value={search}
         />
 
-        <Button type="submit">Search</Button>
+        <Button className={classes.searchBtn} type="submit">
+          Search
+        </Button>
       </form>
       <div className="recipes">
         {recipes.map((recipe) => (

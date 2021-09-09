@@ -27,6 +27,15 @@
   text-align: center;
 }
 
+.btn {
+  background: lightcoral;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  width: 150px;
+}
+
 @media (min-width: 768px) {
   .modal {
     width: 40rem;

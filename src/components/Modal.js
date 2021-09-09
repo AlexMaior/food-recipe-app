@@ -18,7 +18,9 @@ const ModalOverlay = (props) => {
             ))}
           </ol>
           <div className={classes.btnModal}>
-            <Button onClick={props.onConfirm}>Close</Button>
+            <Button className={classes.btn} onClick={props.onConfirm}>
+              Close
+            </Button>
           </div>
         </div>
       </Fragment>
@@ -36,7 +38,10 @@ const ModalOverlay = (props) => {
             ))}
           </ol>
           <div className={classes.btnModal}>
-            <Button onClick={props.onConfirm} className={classes.btnModal}>
+            <Button
+              onClick={props.onConfirm}
+              className={`${classes.btn} ${classes.btnModal}`}
+            >
               Close
             </Button>
           </div>

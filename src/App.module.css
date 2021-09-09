@@ -1,11 +1,28 @@
 .search-bar.invalid {
-  background: #ff0000;
+  border: 3px solid #ff0000;
+  color: #ff0000;
+}
+
+.search-bar.search-bar.invalid::placeholder {
+  color: rgb(255, 0, 0);
 }
 
 .search-bar {
   width: 50%;
-  border: 1px solid coral;
+  border: 3px solid #fad0c4;
   padding: 10px;
   border-radius: 5px;
   margin-top: 15px;
+  font-size: 20px;
+  outline: none;
+}
+
+.searchBtn {
+  background: lightcoral;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  width: 150px;
+  font-size: 20px;
 }
