@@ -26,7 +26,6 @@
 .modal {
   position: fixed;
   top: 20vh;
-  /* left: 5%; */
   left: 0;
   right: 0;
   margin-left: auto;
@@ -45,7 +44,6 @@
 @media (min-width: 768px) {
   .modal {
     width: 40rem;
-    /* left: calc(50% - 20rem); */
   }
 }
 
