@@ -14,7 +14,15 @@ const ModalOverlay = (props) => {
           <h2>Ingredients for {props.data.label}:</h2>
           <ol>
             {props.data.ingredients.map((ingredient) => (
-              <li key={props.data.id}>{ingredient.text}</li>
+              <div className={classes.itemsMapped}>
+                <li key={props.data.id}>{ingredient.text} </li>
+                &nbsp; &nbsp;
+                <img
+                  className={classes.modalImages}
+                  src={ingredient.image}
+                  alt=""
+                />
+              </div>
             ))}
           </ol>
           <div className={classes.btnModal}>
