@@ -8,21 +8,6 @@
   background-color: rgba(37, 37, 37, 0.788);
 }
 
-.modal {
-  position: fixed;
-  top: 20vh;
-  left: 5%;
-  width: 90%;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  z-index: 30;
-  animation: slide-down 300ms ease-out forwards;
-  overflow-y: auto;
-  max-height: 500px;
-}
-
 .btnModal {
   text-align: center;
 }
@@ -34,12 +19,33 @@
   color: white;
   border-radius: 5px;
   width: 150px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.modal {
+  position: fixed;
+  top: 20vh;
+  /* left: 5%; */
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+  overflow-y: auto;
+  max-height: 500px;
 }
 
 @media (min-width: 768px) {
   .modal {
     width: 40rem;
-    left: calc(50% - 20rem);
+    /* left: calc(50% - 20rem); */
   }
 }
 
