@@ -44,7 +44,10 @@ const Recipe = (props) => {
             See Details
           </Button>
         </div>
-        <p>{props.calories.toFixed(0)} Calories</p>
+        <br />
+        <h2 className={classes.caloriesTitles}>Calories :</h2>
+        <h3 className={classes.caloriesTitles}>{props.calories.toFixed(0)}</h3>
+        <br />
         <img className={classes.foodImg} src={props.image} alt="" />
       </div>
     </>
