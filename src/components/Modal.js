@@ -56,6 +56,23 @@ const ModalOverlay = (props) => {
         </div>
       </Fragment>
     );
+  } else if (props.btnInformation === "general") {
+    return (
+      <Fragment>
+        <div className={classes.modal}>
+          <h1>Hello Visitor</h1>
+          <p>Because this is a free public API </p>
+          <div className={classes.btnModal}>
+            <Button
+              onClick={props.onConfirm}
+              className={`${classes.btn} ${classes.btnModal}`}
+            >
+              Close
+            </Button>
+          </div>
+        </div>
+      </Fragment>
+    );
   }
 };
 

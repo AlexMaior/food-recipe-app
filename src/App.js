@@ -3,6 +3,7 @@ import "./App.css";
 import Button from "./components/Button";
 import Recipe from "./components/Recipe";
 import classes from "./App.module.css";
+import Modal from "./components/Modal";
 
 function App() {
   //This app uses the pubnlic API fom https://www.edamam.com/
@@ -14,6 +15,9 @@ function App() {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("chicken");
   const [isValid, setIsValid] = useState(true);
+
+  const [open, setOpen] = useState(true);
+  const [btnState, setBtnState] = useState("general");
 
   const foodInputRef = useRef();
 
@@ -46,35 +50,45 @@ function App() {
     setSearch("");
   };
 
+  const modalHandler = () => {
+    setOpen(false);
+    setBtnState("");
+  };
+
   return (
     <div className="App">
-      <form onSubmit={getSearch} className="search-form">
-        <input
-          ref={foodInputRef}
-          onChange={updateSearch}
-          className={` ${classes["search-bar"]} ${!isValid && classes.invalid}`}
-          type="text"
-          placeholder="try Pulled Pork, Pizza, Coffee..."
-          value={search}
-        />
-
-        <Button className={classes.searchBtn} type="submit">
-          Search
-        </Button>
-      </form>
-      <div className="recipes">
-        {recipes.map((recipe) => (
-          <Recipe
-            key={recipe.recipe.label}
-            title={recipe.recipe.label}
-            calories={recipe.recipe.calories}
-            image={recipe.recipe.image}
-            ingredients={recipe.recipe.ingredients}
-            source={recipe.recipe.source}
-            data={recipe.recipe}
+      {open && <Modal btnInfo={btnState} onConfirm={modalHandler} />}
+      <>
+        <form onSubmit={getSearch} className="search-form">
+          <input
+            ref={foodInputRef}
+            onChange={updateSearch}
+            className={` ${classes["search-bar"]} ${
+              !isValid && classes.invalid
+            }`}
+            type="text"
+            placeholder="try Pulled Pork, Pizza, Coffee..."
+            value={search}
           />
-        ))}
-      </div>
+
+          <Button className={classes.searchBtn} type="submit">
+            Search
+          </Button>
+        </form>
+        <div className="recipes">
+          {recipes.map((recipe) => (
+            <Recipe
+              key={recipe.recipe.label}
+              title={recipe.recipe.label}
+              calories={recipe.recipe.calories}
+              image={recipe.recipe.image}
+              ingredients={recipe.recipe.ingredients}
+              source={recipe.recipe.source}
+              data={recipe.recipe}
+            />
+          ))}
+        </div>
+      </>
     </div>
   );
 }
