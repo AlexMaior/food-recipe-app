@@ -53,6 +53,10 @@
   box-shadow: 0px 0px 5px black;
 }
 
+.generalModal {
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   .modal {
     width: 40rem;

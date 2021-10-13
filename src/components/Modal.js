@@ -60,15 +60,24 @@ const ModalOverlay = (props) => {
     return (
       <Fragment>
         <div className={classes.modal}>
-          <h1>Hello Visitor</h1>
-          <p>Because this is a free public API </p>
-          <div className={classes.btnModal}>
-            <Button
-              onClick={props.onConfirm}
-              className={`${classes.btn} ${classes.btnModal}`}
-            >
-              Close
-            </Button>
+          <div className={classes.generalModal}>
+            <h2>Hi there! </h2>
+            <p>
+              Because this is a free public API, there is a limit <br />
+              to the number of requests you can make.
+            </p>
+            <br />
+            <p>The limit is 10 requests / 1 minute. </p>
+            <br />
+            <br />
+            <div className={classes.btnModal}>
+              <Button
+                onClick={props.onConfirm}
+                className={`${classes.btn} ${classes.btnModal}`}
+              >
+                Close
+              </Button>
+            </div>
           </div>
         </div>
       </Fragment>

@@ -29,12 +29,8 @@ const Recipe = (props) => {
       )}
       <div className={classes.container}>
         <h1>{props.title}</h1>
-        <p>by:</p>
-        <h2>
-          <a href={props.data.url} target="_blank" rel="noreferrer">
-            {props.source}
-          </a>
-        </h2>
+
+        <br />
         <div className={classes.btnContainer}>
           <Button onClick={ingredientsBtnHandler} className={classes.btn}>
             See Ingredients
@@ -45,9 +41,19 @@ const Recipe = (props) => {
           </Button>
         </div>
         <br />
-        <h2 className={classes.caloriesTitles}>Calories :</h2>
-        <h3 className={classes.caloriesTitles}>{props.calories.toFixed(0)}</h3>
-        <br />
+        <h3 className={classes.caloriesTitles}>
+          Calories : {props.calories.toFixed(0)}
+        </h3>
+        <h2>
+          <a
+            href={props.data.url}
+            target="_blank"
+            rel="noreferrer"
+            className={classes.link}
+          >
+            Take me to the recipe
+          </a>
+        </h2>
         <img className={classes.foodImg} src={props.image} alt="" />
       </div>
     </>

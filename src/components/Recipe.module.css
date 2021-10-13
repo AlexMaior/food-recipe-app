@@ -18,6 +18,10 @@ p {
   margin: 0;
 }
 
+.link {
+  color: inherit;
+}
+
 .caloriesTitles {
   margin: 0;
 }
