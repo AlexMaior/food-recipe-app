@@ -8,8 +8,11 @@ import Modal from "./components/Modal";
 function App() {
   //This app uses the pubnlic API fom https://www.edamam.com/
   //In order to use this app you will need a APP ID and An APP KEY
-  const APP_ID = "00d0a23d";
-  const APP_KEY = "fbe95899ecbd4127523f1e55c6571f99";
+  // const APP_ID = "00d0a23d";
+  // const APP_KEY = "fbe95899ecbd4127523f1e55c6571f99";
+
+  let APP_ID = process.env.REACT_APP_API_ID;
+  let APP_KEY = process.env.REACT_APP_API_KEY;
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
@@ -23,11 +26,18 @@ function App() {
 
   useEffect(() => {
     const getRecipes = async () => {
-      const response = await fetch(
-        `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
-      );
-      const data = await response.json();
-      setRecipes(data.hits);
+
+      const apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+      try {
+        const response = await fetch(apiUrl);
+
+        const data = await response.json();
+        setRecipes(data.hits);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+        setRecipes([]);
+      }
     };
     getRecipes();
   }, [query]);
@@ -78,7 +88,7 @@ function App() {
         <div className="recipes">
           {recipes.map((recipe) => (
             <Recipe
-              key={recipe.recipe.label}
+                key={recipe.recipe.uri}
               title={recipe.recipe.label}
               calories={recipe.recipe.calories}
               image={recipe.recipe.image}
