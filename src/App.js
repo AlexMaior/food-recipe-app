@@ -40,7 +40,7 @@ function App() {
       }
     };
     getRecipes();
-  }, [query]);
+  }, [query, APP_ID, APP_KEY]);
 
   const updateSearch = (e) => {
     if (e.target.value.trim().length > 0) {
